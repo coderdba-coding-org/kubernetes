@@ -1,4 +1,5 @@
 KEY_FILE=./ingress.key
 CERT_FILE=./ingress.crt
-HOST=`minikube ip`
+#HOST=`minikube ip`
+HOST=hello.local
 CERT_NAME="nginx-ingress-tls-secret"
