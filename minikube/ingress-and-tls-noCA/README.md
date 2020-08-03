@@ -12,6 +12,25 @@ Example with TLS: https://kubernetes.github.io/ingress-nginx/examples/tls-termin
 - https://kubernetes.github.io/ingress-nginx/examples/PREREQUISITES/#tls-certificates
 - https://kubernetes.github.io/ingress-nginx/examples/PREREQUISITES/#test-http-service
 
+## Port of nginx-ingress-controller itself
+NOTE: nginx-ingress-controller pod runs with 'hostport' option (at least on minikube) - so, no service is required   
+
+```
+    ports:
+    - containerPort: 80
+      hostPort: 80
+      name: http
+      protocol: TCP
+    - containerPort: 443
+      hostPort: 443
+      name: https
+      protocol: TCP
+    - containerPort: 8443
+      name: webhook
+      protocol: TCP
+
+```
+
 
 ### Start Minikube
 ```

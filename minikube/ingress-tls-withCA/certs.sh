@@ -22,7 +22,8 @@ openssl req -x509 -sha256 -newkey rsa:4096 -keyout ca.key -out ca.crt -days 356 
 ## Generate the Server Key, and Certificate and Sign with the CA Certificate:
 ### Generate key
 #openssl req -new -newkey rsa:4096 -keyout server.key -out server.csr -nodes -subj '/CN=mydomain.com'
-openssl req -new -newkey rsa:4096 -keyout server.key -out server.csr -nodes -subj '/CN=${HOST}'
+#openssl req -new -newkey rsa:4096 -keyout server.key -out server.csr -nodes -subj '/CN=${HOST}'
+openssl req -new -newkey rsa:4096 -keyout server.key -out server.csr -nodes -subj "/CN=${HOST}/O=${HOST}"
 ### Generate cert signed with ca cert
 openssl x509 -req -sha256 -days 365 -in server.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out server.crt
 
@@ -58,15 +59,16 @@ kubectl get po
 kubectl get svc
 
 # Create the ingress
-kubectl apply -f ingres.yaml
+kubectl apply -f ingress.yaml
+kubectl get ingress
 
 # Access the app
-curl https://minikube-ip:80
+curl https://minikube:80
 --> this will fail
 
-curl -k https://minikube-ip:80
+curl -k https://minikube:80
 --> this will work
 
-curl --cacert=ca.crt https://minikube-ip:80
+curl --cacert=ca.crt https://minikube:80
 --> IS FAILING - TBD
 
