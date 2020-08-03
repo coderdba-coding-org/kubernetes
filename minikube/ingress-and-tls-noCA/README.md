@@ -1,16 +1,14 @@
-
-Basic example Ingress: https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/  
-
-The Hello-App: https://github.com/GoogleCloudPlatform/kubernetes-engine-samples/blob/master/hello-app/Dockerfile
-(runs on pod-port 8080)
-
-Ingress: https://kubernetes.io/docs/concepts/services-networking/ingress/
+Main basic non-tls example Ingress: https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/  
 TLS Cert: https://kubernetes.github.io/ingress-nginx/user-guide/tls/  
 Client Cert: https://kubernetes.github.io/ingress-nginx/examples/auth/client-certs/
 
 Example with TLS: https://kubernetes.github.io/ingress-nginx/examples/tls-termination/
 - https://kubernetes.github.io/ingress-nginx/examples/PREREQUISITES/#tls-certificates
 - https://kubernetes.github.io/ingress-nginx/examples/PREREQUISITES/#test-http-service
+
+The Hello-App: https://github.com/GoogleCloudPlatform/kubernetes-engine-samples/blob/master/hello-app/Dockerfile
+(runs on pod-port 8080)
+Ingress: https://kubernetes.io/docs/concepts/services-networking/ingress/
 
 ## Port of nginx-ingress-controller itself
 NOTE: nginx-ingress-controller pod runs with 'hostport' option (at least on minikube) - so, no service is required   
