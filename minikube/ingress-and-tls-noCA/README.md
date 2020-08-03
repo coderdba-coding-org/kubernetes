@@ -1,5 +1,16 @@
 
-Ingress: https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/  
+Basic example Ingress: https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/  
+
+The Hello-App: https://github.com/GoogleCloudPlatform/kubernetes-engine-samples/blob/master/hello-app/Dockerfile
+(runs on pod-port 8080)
+
+Ingress: https://kubernetes.io/docs/concepts/services-networking/ingress/
+TLS Cert: https://kubernetes.github.io/ingress-nginx/user-guide/tls/  
+Client Cert: https://kubernetes.github.io/ingress-nginx/examples/auth/client-certs/
+
+Example with TLS: https://kubernetes.github.io/ingress-nginx/examples/tls-termination/
+- https://kubernetes.github.io/ingress-nginx/examples/PREREQUISITES/#tls-certificates
+- https://kubernetes.github.io/ingress-nginx/examples/PREREQUISITES/#test-http-service
 
 
 ### Start Minikube
@@ -176,6 +187,83 @@ Version: 1.0.0
 Hostname: web-6785d44d5-7dzc4
 
 $ curl 192.168.99.135/v2
+Hello, world!
+Version: 2.0.0
+Hostname: web2-8474c56fd-6gftf
+```
+## ----------------------------
+## TLS - NO CA CERT
+## ----------------------------
+
+https://kubernetes.github.io/ingress-nginx/user-guide/tls/
+
+#### TLS Secrets
+Anytime we reference a TLS secret, we mean a PEM-encoded X.509, RSA (2048) secret.  
+
+You can generate a self-signed certificate and private key with:  
+
+```
+KEY_FILE=./ingress.key
+CERT_FILE=./ingress.crt
+HOST=`minikube ip`
+CERT_NAME="nginx-ingress-tls-secret"
+
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ${KEY_FILE} -out ${CERT_FILE} -subj "/CN=${HOST}/O=${HOST}"
+```
+
+Then create the secret in the cluster via:  
+```
+kubectl create secret tls ${CERT_NAME} --key ${KEY_FILE} --cert ${CERT_FILE}
+```
+
+The resulting secret will be of type kubernetes.io/tls  
+
+### Create ingress with secret
+
+Use this yaml with "tls" section added:  
+```
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: example-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: web
+          servicePort: 8080
+      - path: /v2
+        backend:
+          serviceName: web2
+          servicePort: 8080
+  tls:
+  - secretName: nginx-ingress-tls-secret
+```
+
+Verify: Now, you can see 443 also in ports
+```
+kubectl apply -f example-ingress-tls.yaml
+
+kybectl get ingress
+-->
+example-ingress   <none>   *       192.168.99.135   80, 443   3h8m
+
+```
+
+Using just curl gives cert error.  
+Use curl -k.  
+
+```
+$ curl -k  https://192.168.99.135
+Hello, world!
+Version: 1.0.0
+Hostname: web-6785d44d5-7dzc4
+
+$ curl -k https://192.168.99.135/v2
 Hello, world!
 Version: 2.0.0
 Hostname: web2-8474c56fd-6gftf
