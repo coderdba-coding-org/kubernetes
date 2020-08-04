@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: billingapp
+  namespace: default
+spec:
+  backend:
+    serviceName: billingapp
+    servicePort: 8080
+  rules:
+  - host: billingapp.shop1234.company.com
+    http:
+      paths:
+      - backend:
+          serviceName: billingapp
+          servicePort: 8080
+        path: /
+  - host: billingapp.storeapi.target.com
+    http:
+      paths:
+      - backend:
+          serviceName: billingapp
+          servicePort: 8080
+        path: /
+  tls:
+  - hosts:
+    - billingapp.shop1234.company.com
+    - billingapp.storeapi.target.com
+    secretName: ingresscontroller-tls-secret
+status:
+  loadBalancer: {}
