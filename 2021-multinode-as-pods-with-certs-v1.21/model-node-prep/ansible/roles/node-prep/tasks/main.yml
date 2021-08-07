@@ -1,0 +1,17 @@
+# NOTE: commented out lines are already run - so that they wont rerun and mess up
+
+# Required
+#- name: Selinux
+  #import_tasks: selinux.yml
+
+# Required
+#- name: Swap
+  #import_tasks: swap.yml
+
+# Required
+#- name: Netfilter
+#  import_tasks: netfilter.yml
+
+# Required
+- name: Docker - container-selinux install
+  import_tasks: docker-step1-container-selinux.yml

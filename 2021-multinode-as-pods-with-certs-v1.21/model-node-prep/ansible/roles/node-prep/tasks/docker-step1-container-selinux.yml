@@ -1,0 +1,4 @@
+- name: Install container-selinux
+  become: yes
+  shell:
+    cmd: "yum install -y http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.119.1-1.c57a6f9.el7.noarch.rpm"

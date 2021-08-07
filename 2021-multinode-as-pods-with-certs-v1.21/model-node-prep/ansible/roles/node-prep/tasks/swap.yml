@@ -1,0 +1,8 @@
+- name: Disable swap with swapoff
+  become: yes
+  shell:
+    cmd: "swapoff -a"
+
+- name: Modify fstab
+  shell:
+    cmd: "/bin/cp -p /etc/fstab /etc/fstab.orig; sed -e '/centos-swap/ s/^#*/#/' -i /etc/fstab "

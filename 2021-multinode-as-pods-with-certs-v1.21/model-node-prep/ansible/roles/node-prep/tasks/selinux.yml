@@ -1,0 +1,19 @@
+- name: Selinux setenforce 0 command
+  become: yes
+  shell:
+    cmd: "setenforce 0"
+
+- name: Modify selinux config file /etc/selinux/config
+  shell:
+    cmd: "/bin/cp -p /etc/selinux/config /etc/selinux/config.orig; sed -i 's/^SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config"
+
+# This did not work
+#- name: Modify selinux config file /etc/selinux/config
+#  become: yes
+#  shell: |
+#
+#    echo -e "\n Backing up /etc/selinux/config to /etc/selinux/config.orig
+#    /bin/cp -p /etc/selinux/config /etc/selinux/config.orig 
+#
+#    echo -e "\n Setting selinux to disabled in /etc/selinux/config"
+#    sed -i 's/^SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config

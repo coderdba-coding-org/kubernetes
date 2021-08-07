@@ -1,0 +1,14 @@
+- name: Run command modprobe br_netfilter
+  become: yes
+  shell:
+    cmd: "/usr/sbin/modprobe br_netfilter"
+
+- name: Configure bridge-nf-call-iptables
+  become: yes
+  shell:
+    cmd: "echo '1' > /proc/sys/net/bridge/bridge-nf-call-iptables"
+
+- name: Configure sysctl.conf
+  become: yes
+  shell:
+    cmd: "cp -p /etc/sysctl.conf /etc/sysctl.conf.orig; sed -i '$ a net.bridge.bridge-nf-call-iptables = 1' /etc/sysctl.conf; /usr/sbin/sysctl -p"
