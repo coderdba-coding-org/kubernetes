@@ -2,11 +2,11 @@
 
 # Required
 #- name: Selinux
-  #import_tasks: selinux.yml
+#  import_tasks: selinux.yml
 
 # Required
 #- name: Swap
-  #import_tasks: swap.yml
+#  import_tasks: swap.yml
 
 # Required
 #- name: Netfilter
@@ -33,5 +33,9 @@
 #  import_tasks: firewall-master.yml
 
 # Required - for worker nodes
-- name: Firewall settings for worker nodes
-  import_tasks: firewall-worker.yml
+#- name: Firewall settings for worker nodes
+#  import_tasks: firewall-worker.yml
+
+# Required - for docker-pull ansible module to work
+#- name: Install python-pip
+#  import_tasks: python-pip.yml

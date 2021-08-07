@@ -1,0 +1,12 @@
+- name: Install epel-release
+  become: yes
+  yum:
+    name: epel-release
+    state: present
+
+- name: Install python-pip
+  become: yes
+  yum:
+    name: python-pip
+    state: present
+

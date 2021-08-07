@@ -1,0 +1,9 @@
+# NOTE: commented out lines are already run - so that they wont rerun and mess up
+
+# Required
+#- name: Docker python library install
+#  import_tasks: pip-install-docker.yml
+
+# Required
+- name: Docker pull
+  import_tasks: docker-pull.yml

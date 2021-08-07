@@ -1,0 +1,4 @@
+- name: Python docker library
+  become: yes
+  shell: |
+    pip install docker
