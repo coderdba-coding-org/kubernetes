@@ -1,0 +1,19 @@
+# Install prerequisites: yum-utils device-mapper-persistent-data lvm2
+- name: Install yum-utils
+  become: yes
+  yum:
+    name: yum-utils
+    state: present
+
+- name: Install device-mapper-persistent-data
+  become: yes
+  yum:
+    name: device-mapper-persistent-data
+    state: present
+
+- name: Install lvm2
+  become: yes
+  yum:
+    name: lvm2
+    state: present
+

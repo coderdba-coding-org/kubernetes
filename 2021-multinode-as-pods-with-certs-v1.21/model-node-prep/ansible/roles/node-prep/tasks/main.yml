@@ -13,5 +13,13 @@
 #  import_tasks: netfilter.yml
 
 # Required
-- name: Docker - container-selinux install
-  import_tasks: docker-step1-container-selinux.yml
+#- name: Docker - container-selinux install
+#  import_tasks: docker-step1-container-selinux.yml
+
+# Required
+#- name: Docker - other prerequisites
+#  import_tasks: docker-step2-prerequisites.yml
+
+# Required
+- name: Docker - docker-ce install
+  import_tasks: docker-step3-docker-ce.yml

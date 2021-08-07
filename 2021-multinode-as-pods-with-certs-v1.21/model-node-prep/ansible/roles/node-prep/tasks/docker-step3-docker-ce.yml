@@ -1,0 +1,23 @@
+# Install docker-ce
+# Reference: https://gist.github.com/yonglai/d4617d6914d5f4eb22e4e5a15c0e9a03
+
+- name: Add Docker repo
+  become: yes
+  get_url:
+    url: https://download.docker.com/linux/centos/docker-ce.repo
+    dest: /etc/yum.repos.d/docer-ce.repo
+
+- name: Install docker-ce
+  become: yes
+  yum:
+    #name: docker-ce-20.10.7-3
+    #name: docker-ce-20.10
+    name: docker-ce
+    state: latest
+
+- name: Start Docker service
+  become: yes
+  service:
+    name: docker
+    state: started
+    enabled: yes
