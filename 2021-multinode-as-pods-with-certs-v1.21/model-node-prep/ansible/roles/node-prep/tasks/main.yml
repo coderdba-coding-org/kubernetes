@@ -21,5 +21,17 @@
 #  import_tasks: docker-step2-prerequisites.yml
 
 # Required
-- name: Docker - docker-ce install
-  import_tasks: docker-step3-docker-ce.yml
+#- name: Docker - docker-ce install
+#  import_tasks: docker-step3-docker-ce.yml
+
+# Required
+#- name: Cfssl
+#  import_tasks: cfssl.yml
+
+# Required - for master nodes
+#- name: Firewall settings for master nodes
+#  import_tasks: firewall-master.yml
+
+# Required - for worker nodes
+- name: Firewall settings for worker nodes
+  import_tasks: firewall-worker.yml
