@@ -2,3 +2,8 @@
   become: yes
   shell: |
     pip install docker
+
+- name: Python docker-py library
+  become: yes
+  shell: |
+    pip install docker-py
