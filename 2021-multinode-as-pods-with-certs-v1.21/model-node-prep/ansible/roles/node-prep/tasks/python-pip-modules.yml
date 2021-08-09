@@ -1,0 +1,8 @@
+- name: Install pip module docker
+  become: yes
+  shell: pip install docker==4.4.4
+
+- name: Install python-pip
+  become: yes
+  shell: pip install websocket-client==0.57.0
+

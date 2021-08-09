@@ -1,0 +1,11 @@
+- name: "Docker pull images"
+  hosts: all
+    #- all
+  #vars:
+  #  ansible_python_interpreter: "/usr/bin/python"
+  tasks:
+  - name: Docker pull image 'pause'
+    docker_image:
+      #name: gcr.io/google-containers/pause-amd64:3.2
+      name: k8s.gcr.io/pause-amd64:3.1
+      source: pull

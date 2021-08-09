@@ -39,3 +39,7 @@
 # Required - for docker-pull ansible module to work
 #- name: Install python-pip
 #  import_tasks: python-pip.yml
+
+# Required - for docker-pull ansible module to work
+#- name: Install python pip modules
+#  import_tasks: python-pip-modules.yml
