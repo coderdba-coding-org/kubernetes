@@ -1,0 +1,38 @@
+- name: Add Kubernetes yum repo
+  become: yes
+  copy:
+    src: ./kubernetes.repo
+    dest: /etc/yum.repos.d/kubernetes.repo
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Install kubelet
+  become: yes
+  yum:
+    #name: kubelet
+    name: kubelet-1.21.2-0.x86_64
+    #name: kubelet-1.21.2-0
+    #name: kubelet-1.21.2
+    state: present
+
+- name: Install kubeadm
+  become: yes
+  yum:
+    #name: kubeadm
+    name: kubeadm-1.21.2-0.x86_64
+    state: present
+
+- name: Install kubectl
+  become: yes
+  yum:
+    #name: kubectl
+    name: kubectl-1.21.2-0.x86_64
+    state: present
+
+- name: Enable kubelet service
+  systemd:
+    name: kubelet
+    # Enabled did not seem to be a valid option in ansible 2.11.3
+    #state: enabled
+    state: started

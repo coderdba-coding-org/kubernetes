@@ -8,3 +8,8 @@
   roles:
   - { role: docker-pull }
 
+- name: Install Kubernetes tools
+  hosts: all
+  roles:
+  - { role: kube-tools-install }
+

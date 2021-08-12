@@ -1,0 +1,3 @@
+# Required
+- name: Kubernetes tools install
+  import_tasks: kube-tools-install.yml
