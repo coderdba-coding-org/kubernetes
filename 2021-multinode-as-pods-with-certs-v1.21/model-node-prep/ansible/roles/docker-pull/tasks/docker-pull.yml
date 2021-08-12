@@ -53,13 +53,22 @@
     name: k8s.gcr.io/pause-amd64:3.1
     source: pull
 
-#docker pull gcr.io/google_containers/kube-apiserver-amd64:v1.21.2
-#docker pull gcr.io/google_containers/kube-scheduler-amd64:v1.21.2 
-#docker pull gcr.io/google_containers/kube-controller-manager-amd64:v1.21.2 
-#docker pull gcr.io/google_containers/kube-proxy-amd64:v1.21.2
-#docker pull quay.io/calico/node:v3.19.1 (https://hub.docker.com/r/calico/node/tags)
-#docker pull quay.io/calico/pod2daemon-flexvol:v3.19.1
-#docker pull quay.io/calico/cni:v3.19.1
-#docker pull quay.io/calico/kube-controllers:v3.19.1
-#docker pull k8s.gcr.io/coredns/coredns:v1.8.0
-#docker pull gcr.io/google-containers/pause-amd64:3.2
+- name: Docker pull image haproxy-ingress
+  docker_image:
+    name: quay.io/jcmoraisjr/haproxy-ingress:v0.12.7
+    source: pull
+
+- name: Docker pull image kube-addon-manager
+  docker_image:
+    name: gcr.io/google-containers/kube-addon-manager-amd64:v9.1.1
+    source: pull
+
+- name: Docker pull image metric-server
+  docker_image:
+    name: bitnami/metrics-server:0.5.0
+    source: pull
+
+- name: Docker pull image rescheduler
+  docker_image:
+    name: gcr.io/google-containers/rescheduler:v0.4.0
+    source: pull
