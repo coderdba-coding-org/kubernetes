@@ -1,3 +1,6 @@
+# NOTE:
+ETCD ones are from: https://github.com/etcd-io/etcd/blob/main/hack/tls-setup/config/req-csr.json
+
 Manually created files:
 ca-config.json
 ca-csr.json
@@ -17,3 +20,7 @@ kube-proxy-gen.sh
 
 kube-apiserver-csr.json
 kube-apiserver-gen.sh
+
+etcd-singlenode-csr.json
+etcd-multinode-csr.json
+etcd-gen.sh
