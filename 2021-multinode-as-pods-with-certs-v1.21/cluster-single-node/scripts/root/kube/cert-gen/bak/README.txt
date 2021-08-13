@@ -14,6 +14,3 @@ kubelet-gen.sh
 
 kube-proxy-csr.json
 kube-proxy-gen.sh
-
-kube-apiserver-csr.json
-kube-apiserver-gen.sh
