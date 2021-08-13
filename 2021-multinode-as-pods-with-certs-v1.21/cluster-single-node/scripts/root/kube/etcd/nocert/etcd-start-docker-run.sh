@@ -4,7 +4,7 @@ export ETCD_IMAGE="k8s.gcr.io/etcd:3.4.13-0"
 
 #--name etcd ${REGISTRY}:latest \
 
-docker run \
+docker run --rm \
   -p 2379:2379 \
   -p 2380:2380 \
   --volume=${DATA_DIR}:/etcd-data \
