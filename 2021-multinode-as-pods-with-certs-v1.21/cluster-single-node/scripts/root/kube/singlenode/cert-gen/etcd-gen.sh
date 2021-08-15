@@ -7,15 +7,15 @@
 #================
 # Client certificates
 cfssl gencert \
--ca ca.pem -ca-key ca-key.pem \
+-ca certs/ca.pem -ca-key certs/ca-key.pem \
 -config ca-config.json -profile=kubernetes etcd-singlenode-csr.json | \
-cfssljson -bare etcd-ksn1
+cfssljson -bare certs/etcd-ksn1
 
 # Peer certificates
 cfssl gencert \
--ca ca.pem -ca-key ca-key.pem \
+-ca certs/ca.pem -ca-key certs/ca-key.pem \
 -config ca-config.json -profile=kubernetes etcd-singlenode-csr.json | \
-cfssljson -bare etcd-peer-ksn1
+cfssljson -bare certs/etcd-peer-ksn1
 
 
 #================
@@ -23,37 +23,37 @@ cfssljson -bare etcd-peer-ksn1
 #================
 # Client certificates
 #cfssl gencert \
-#-ca ca.pem -ca-key ca-key.pem \
+#-ca certs/ca.pem -ca-key certs/ca-key.pem \
 #-config ca-config.json -profile=kubernetes etcd-multinode-csr.json | \
-#cfssljson -bare etcd-k1
+#cfssljson -bare certs/etcd-k1
 
 # Peer certificates
 #cfssl gencert \
-#-ca ca.pem -ca-key ca-key.pem \
+#-ca certs/ca.pem -ca-key certs/ca-key.pem \
 #-config ca-config.json -profile=kubernetes etcd-multinode-csr.json | \
-#cfssljson -bare etcd-peer-k1
+#cfssljson -bare certs/etcd-peer-k1
 
 # Client certificates
 #cfssl gencert \
-#-ca ca.pem -ca-key ca-key.pem \
+#-ca certs/ca.pem -ca-key certs/ca-key.pem \
 #-config ca-config.json -profile=kubernetes etcd-multinode-csr.json | \
-#cfssljson -bare etcd-k2
+#cfssljson -bare certs/etcd-k2
 
 # Peer certificates
 #cfssl gencert \
-#-ca ca.pem -ca-key ca-key.pem \
+#-ca certs/ca.pem -ca-key certs/ca-key.pem \
 #-config ca-config.json etcd-multinode-csr.json | \
-#cfssljson -bare etcd-peer-k2
+#cfssljson -bare certs/etcd-peer-k2
 
 # Client certificates
 #cfssl gencert \
-#-ca ca.pem -ca-key ca-key.pem \
+#-ca certs/ca.pem -ca-key certs/ca-key.pem \
 #-config ca-config.json etcd-multinode-csr.json | \
-#cfssljson -bare etcd-k3
+#cfssljson -bare certs/etcd-k3
 
 # Peer certificates
 #cfssl gencert \
-#-ca ca.pem -ca-key ca-key.pem \
+#-ca certs/ca.pem -ca-key certs/ca-key.pem \
 #-config ca-config.json etcd-multinode-csr.json | \
-#cfssljson -bare etcd-peer-k3
+#cfssljson -bare certs/etcd-peer-k3
 

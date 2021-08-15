@@ -3,7 +3,20 @@ ETCD ones are from: https://github.com/etcd-io/etcd/blob/main/hack/tls-setup/con
 
 After creating certs, move all .pem and .csr files to certs folder here - to avoid clutter
 
-Manually created files:
+=======================
+RUN SEQUENCE
+=======================
+ca-gen.sh
+admin-gen.sh
+etcd-gen.sh
+kube-apiserver-gen.sh
+kube-proxy-gen.sh
+kubelet-gen.sh
+kubeconfig-kubelet-gen.sh
+
+=======================
+Manually created files
+=======================
 ca-config.json
 ca-csr.json
 ca-gen.sh
@@ -28,3 +41,5 @@ etcd-multinode-csr.json
 etcd-gen.sh
 
 kubeconfig-kubelet-gen.sh
+
+

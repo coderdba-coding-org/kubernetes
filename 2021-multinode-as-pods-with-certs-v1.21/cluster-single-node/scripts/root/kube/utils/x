@@ -1,0 +1,8 @@
+docker rm efccaf852717
+docker rm 8eeeb9dc3b8f
+docker rm 5db389e87f9e
+docker rm f472655e1a31
+docker rm e7f918325f72
+docker rm 11368e83ca17
+docker rm fd4b24ebf742
+docker rm b24c8873f1e6

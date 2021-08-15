@@ -1,0 +1,8 @@
+docker stop efccaf852717
+docker stop 8eeeb9dc3b8f
+docker stop 5db389e87f9e
+docker stop f472655e1a31
+docker stop e7f918325f72
+docker stop 11368e83ca17
+docker stop fd4b24ebf742
+docker stop b24c8873f1e6

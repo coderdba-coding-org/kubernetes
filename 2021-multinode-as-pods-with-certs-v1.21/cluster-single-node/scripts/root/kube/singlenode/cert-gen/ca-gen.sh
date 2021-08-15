@@ -1,1 +1,1 @@
-cfssl gencert -initca ca-csr.json | cfssljson -bare ca
+cfssl gencert -initca ca-csr.json | cfssljson -bare certs/ca
