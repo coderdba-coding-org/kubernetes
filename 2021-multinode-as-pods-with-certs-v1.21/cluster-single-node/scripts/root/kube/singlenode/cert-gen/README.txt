@@ -3,6 +3,11 @@ ETCD ones are from: https://github.com/etcd-io/etcd/blob/main/hack/tls-setup/con
 
 After creating certs, move all .pem and .csr files to certs folder here - to avoid clutter
 
+NOTE:
+embed-certs=true will embed certs in the kubeconfig file itself in base64 format
+if embed-certs is omitted then path to cert and key pem files will be placed in kubeconfig 
+- you must verify and ensure that it is the right path like /etc/kubernetes/pki and not the local work directory
+
 =======================
 RUN SEQUENCE
 =======================
