@@ -31,7 +31,7 @@ spec:
         effect: "NoSchedule"
       containers:
       - name: kube-proxy
-        image: k8s.gcr.io/kube-proxy:v1.21.2
+        image: k8s.gcr.io/kube-proxy
         resources:
           requests:
             cpu: 100m
@@ -42,8 +42,7 @@ spec:
         - --cluster-cidr=172.16.0.0/16
         - --masquerade-all
         env:
-        #- name: MASTER_IP
-        - name: NODE_NAME
+        - name: MASTER_IP
           valueFrom:
             fieldRef:
               fieldPath: status.podIP
