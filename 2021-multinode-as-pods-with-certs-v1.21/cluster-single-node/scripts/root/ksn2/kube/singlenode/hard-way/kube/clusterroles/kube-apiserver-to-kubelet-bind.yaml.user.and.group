@@ -11,3 +11,6 @@ subjects:
   - apiGroup: rbac.authorization.k8s.io
     kind: User
     name: kubernetes
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: system:nodes
