@@ -1,0 +1,16 @@
+{
+  "CN": "system:node:192.168.99.102",
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "ABC",
+      "L": "ABC",
+      "O": "system:nodes",
+      "OU": "ABC",
+      "ST": "ABC"
+    }
+  ]
+}
