@@ -8,6 +8,14 @@ embed-certs=true will embed certs in the kubeconfig file itself in base64 format
 if embed-certs is omitted then path to cert and key pem files will be placed in kubeconfig 
 - you must verify and ensure that it is the right path like /etc/kubernetes/pki and not the local work directory
 
+NOTE:
+CN and O are important
+Others can be arbitrary like ABC
+
+OU: In all csr.json OU has been set oas ABC. 
+- Only in CA and etcd csr.json files OU has been different 
+- It mostly need not be different and can be arbitrary in etcd and ca csr.json also
+
 =======================
 RUN SEQUENCE
 =======================
@@ -18,6 +26,8 @@ kube-apiserver-gen.sh
 kube-proxy-gen.sh
 kubelet-gen.sh
 kubeconfig-kubelet-gen.sh
+kubeconfig-admin.sh
+Optional: kubeconfig-admin-noEmbedCerts.sh
 
 =======================
 Manually created files

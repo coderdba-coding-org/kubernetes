@@ -1,5 +1,6 @@
 # CREATE A KUBECONFIG FILE FOR 'admin' USER
-
+#
+# NOTE: First generate admin.pem and admin-key.pem
 
 kubectl config set-cluster kubernetes \
 --certificate-authority=certs/ca.pem \

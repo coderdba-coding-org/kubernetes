@@ -1,3 +1,5 @@
+# Generate the Kubelet client certificates for worker nodes
+
 # 3-node model commands below
 # Uncomment and change IP and hostname as needed
 # If a single-node cluster, then copy just one and change IP and hostname as needed
