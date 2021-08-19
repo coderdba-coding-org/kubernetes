@@ -6,6 +6,7 @@ ERROR WHILE DOING kubectl get logs
 ===================================
 
 FIXED:
+Also refer to: https://github.com/kelseyhightower/kubernetes-the-hard-way/issues/303
 Refer to kube-apiserver-to-kubelet-bind.yaml.user.and.group
 --> added Group system:nodes which is the group of kubelet (see the csr for kubelet) 
        Reference for system:nodes 'O' group which is 'Group' kind in Kubernetes
