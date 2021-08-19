@@ -9,7 +9,7 @@
       "C": "ABC",
       "L": "ABC",
       "O": "system:nodes",
-      "OU": "ABC",
+      "OU": "Kubernetes",
       "ST": "ABC"
     }
   ]

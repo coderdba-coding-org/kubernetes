@@ -1,5 +1,5 @@
 {
-  "CN": "system:node:192.168.99.101",
+  "CN": "system:kube-controller-manager",
   "key": {
     "algo": "rsa",
     "size": 2048
@@ -8,7 +8,7 @@
     {
       "C": "ABC",
       "L": "ABC",
-      "O": "system:nodes",
+      "O": "system:kube-controller-manager",
       "OU": "ABC",
       "ST": "ABC"
     }

@@ -1,5 +1,5 @@
 {
-  "CN": "system:node:192.168.99.101",
+  "CN": "system:node:192.168.99.103",
   "key": {
     "algo": "rsa",
     "size": 2048
@@ -9,7 +9,7 @@
       "C": "ABC",
       "L": "ABC",
       "O": "system:nodes",
-      "OU": "ABC",
+      "OU": "Kubernetes",
       "ST": "ABC"
     }
   ]

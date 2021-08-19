@@ -1,79 +1,33 @@
-# CREATE A kubeconfig FILE FOR KUBELET - for the node IP
+# Single Node
+# https://github.com/kelseyhightower/kubernetes-the-hard-way/blob/master/docs/05-kubernetes-configuration-files.md
 
-# Add the cluster information for the node IP
+# Set this
+export KUBERNETES_PUBLIC_ADDRESS=192.168.99.101
+
+# Multinode - use this line
+#for instance in worker-0 worker-1 worker-2; do
+# Single node - use this line
+#for instance in worker-0
+for instance in ksn1
+do
+
 kubectl config set-cluster kubernetes \
 --certificate-authority=certs/ca.pem \
 --embed-certs=true \
---server=https://192.168.99.101:6443 \
---kubeconfig=kubeconfig/kubelet-192.168.99.101.kubeconfig
+--server=https://${KUBERNETES_PUBLIC_ADDRESS}:6443 \
+--kubeconfig=kubeconfig/kubelet-${instance}.kubeconfig
 
-# Add the credentials for the node IP
-
-kubectl config set-credentials system:node:192.168.99.101 \
---client-certificate=certs/kubelet-ksn1.pem \
---client-key=certs/kubelet-ksn1-key.pem \
+kubectl config set-credentials system:node:${instance} \
+--client-certificate=certs/kubelet-${instance}.pem \
+--client-key=certs/kubelet-${instance}-key.pem \
 --embed-certs=true \
---kubeconfig=kubeconfig/kubelet-192.168.99.101.kubeconfig
+--kubeconfig=kubeconfig/kubelet-${instance}.kubeconfig
 
-# Add the context
 kubectl config set-context default \
 --cluster=kubernetes \
---user=system:node:192.168.99.101 \
---kubeconfig=kubeconfig/kubelet-192.168.99.101.kubeconfig
+--user=system:node:${instance} \
+--kubeconfig=kubeconfig/kubelet-${instance}.kubeconfig
 
-# Use the context for the node
-kubectl config use-context default --kubeconfig=kubeconfig/kubelet-192.168.99.101.kubeconfig
+kubectl config use-context default --kubeconfig=kubeconfig/kubelet-${instance}.kubeconfig
 
-#=================
-# CREATE A kubeconfig FILE FOR KUBELET - for the node hostname
-
-# Add the cluster information for the node
-#kubectl config set-cluster kubernetes \
-#--certificate-authority=certs/ca.pem \
-#--embed-certs=true \
-#--server=https://ksn1:6443 \
-#--kubeconfig=kubeconfig/kubelet-ksn1.kubeconfig
-
-# Add the credentials for the node
-
-kubectl config set-credentials system:node:ksn1 \
---client-certificate=certs/kubelet-ksn1.pem \
---client-key=certs/kubelet-ksn1-key.pem \
---embed-certs=true \
---kubeconfig=kubeconfig/kubelet-ksn1.kubeconfig
-
-# Add the context
-kubectl config set-context default \
---cluster=kubernetes \
---user=system:node:ksn1 \
---kubeconfig=kubeconfig/kubelet-ksn1.kubeconfig
-
-# Use the context for the node
-kubectl config use-context default --kubeconfig=kubeconfig/kubelet-ksn1.kubeconfig
-
-#=================
-# CREATE A kubeconfig FILE FOR KUBELET - for loopback IP
-
-# Add the cluster information for loopback
-kubectl config set-cluster kubernetes \
---certificate-authority=certs/ca.pem \
---embed-certs=true \
---server=https://127.0.0.1:6443 \
---kubeconfig=kubeconfig/kubelet-127.0.0.1.kubeconfig
-
-# Add the credentials for loopback
-
-kubectl config set-credentials system:node:127.0.0.1 \
---client-certificate=certs/kubelet-ksn1.pem \
---client-key=certs/kubelet-ksn1-key.pem \
---embed-certs=true \
---kubeconfig=kubeconfig/kubelet-127.0.0.1.kubeconfig
-
-# Add the context
-kubectl config set-context default \
---cluster=kubernetes \
---user=system:node:127.0.0.1 \
---kubeconfig=kubeconfig/kubelet-127.0.0.1.kubeconfig
-
-# Use the context for the node
-kubectl config use-context default --kubeconfig=kubeconfig/kubelet-127.0.0.1.kubeconfig
+done

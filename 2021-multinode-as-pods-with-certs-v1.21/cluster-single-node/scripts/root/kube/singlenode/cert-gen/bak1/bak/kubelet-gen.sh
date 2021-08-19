@@ -1,5 +1,3 @@
-# Generate the Kubelet client certificates for worker nodes
-
 # 3-node model commands below
 # Uncomment and change IP and hostname as needed
 # If a single-node cluster, then copy just one and change IP and hostname as needed
@@ -32,6 +30,6 @@ cfssl gencert \
 -ca=certs/ca.pem \
 -ca-key=certs/ca-key.pem \
 -config=ca-config.json \
--hostname=192,168.99.101,ksn1,127.0.0.1 \
+-hostname=192,168.99.101,ksn1 \
 -profile=kubernetes kubelet-ksn1-csr.json | \
 cfssljson -bare certs/kubelet-ksn1
