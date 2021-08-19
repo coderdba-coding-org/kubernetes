@@ -26,7 +26,7 @@ spec:
     - --kubelet-certificate-authority=/etc/kubernetes/pki/ca.pem
     - --kubelet-client-certificate=/etc/kubernetes/pki/kubelet-ksn2.pem
     - --kubelet-client-key=/etc/kubernetes/pki/kubelet-ksn2-key.pem
-    - --runtime-config='api/all=true'
+    - --runtime-config=api/all=true
     - --secure-port=6443
     - --service-account-key-file=/etc/kubernetes/pki/ca-key.pem
     - --service-account-issuer=https://192.168.99.102:6443

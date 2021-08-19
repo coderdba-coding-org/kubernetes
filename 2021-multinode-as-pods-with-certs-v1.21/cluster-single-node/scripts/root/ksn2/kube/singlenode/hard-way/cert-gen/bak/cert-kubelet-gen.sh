@@ -20,13 +20,12 @@ cat > kubelet-${instance}-csr.json <<EOF
 EOF
 
 EXTERNAL_IP=192.168.99.102
-EXTERNAL_IP=127.0.0.1
 
 cfssl gencert \
   -ca=ca.pem \
   -ca-key=ca-key.pem \
   -config=ca-config.json \
-  -hostname=${instance},${EXTERNAL_IP},${INTERNAL_IP} \
+  -hostname=${instance},${EXTERNAL_IP} \
   -profile=kubernetes \
   kubelet-${instance}-csr.json | cfssljson -bare kubelet-${instance}
 

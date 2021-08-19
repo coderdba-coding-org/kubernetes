@@ -9,8 +9,8 @@ for instance in ksn2; do
     --kubeconfig=kubelet-${instance}.kubeconfig
 
   kubectl config set-credentials system:node:${instance} \
-    --client-certificate=${instance}.pem \
-    --client-key=${instance}-key.pem \
+    --client-certificate=kubelet-${instance}.pem \
+    --client-key=kubelet-${instance}-key.pem \
     --embed-certs=true \
     --kubeconfig=kubelet-${instance}.kubeconfig
 

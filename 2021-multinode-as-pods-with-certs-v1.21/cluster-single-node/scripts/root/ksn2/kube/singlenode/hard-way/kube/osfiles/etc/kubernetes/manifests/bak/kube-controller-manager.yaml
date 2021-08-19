@@ -22,7 +22,7 @@ spec:
     - --service-account-private-key-file=/etc/kubernetes/pki/service-account-key.pem
     - --service-cluster-ip-range=10.96.0.0/12
     - --use-service-account-credentials=true
-    - --version=2
+    - --v=2
     image: k8s.gcr.io/kube-controller-manager:v1.21.2
     imagePullPolicy: IfNotPresent
     livenessProbe:

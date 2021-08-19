@@ -13,6 +13,7 @@ spec:
     - kube-scheduler
     - --bind-address=0.0.0.0
     - --leader-elect=true
+    - --kubeconfig=/etc/kubernetes/kubeconfig/kube-scheduler.kubeconfig
     - --v=2
     image: k8s.gcr.io/kube-scheduler:v1.21.2
     imagePullPolicy: IfNotPresent
