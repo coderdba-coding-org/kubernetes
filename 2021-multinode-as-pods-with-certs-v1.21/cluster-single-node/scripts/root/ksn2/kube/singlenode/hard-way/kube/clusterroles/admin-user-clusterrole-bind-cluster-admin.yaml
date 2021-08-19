@@ -1,13 +1,13 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: system:kube-apiserver-system-node-ksn1
+  name: cluster-admin-to-admin-user
   namespace: ""
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: system:kube-apiserver-to-kubelet
+  name: cluster-admin
 subjects:
   - apiGroup: rbac.authorization.k8s.io
     kind: User
-    name: system:node:ksn1
+    name: admin

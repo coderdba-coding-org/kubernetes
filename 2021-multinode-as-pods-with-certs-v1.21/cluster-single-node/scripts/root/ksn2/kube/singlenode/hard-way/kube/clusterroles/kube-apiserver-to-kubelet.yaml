@@ -15,6 +15,7 @@ rules:
       - nodes/log
       - nodes/spec
       - nodes/metrics
+      - pods
       - pods/log
     verbs:
       - "*"
