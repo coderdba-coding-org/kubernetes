@@ -1,5 +1,3 @@
-export NODE1=192.168.99.101
-
 docker ps -a  | grep etcd
 
 etcdctl --endpoints=http://${NODE1}:2379 member list
