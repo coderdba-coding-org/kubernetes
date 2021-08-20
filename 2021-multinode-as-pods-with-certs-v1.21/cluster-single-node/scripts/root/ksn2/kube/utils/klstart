@@ -1,0 +1,3 @@
+systemctl restart kubelet
+sleep 1
+systemctl status kubelet
