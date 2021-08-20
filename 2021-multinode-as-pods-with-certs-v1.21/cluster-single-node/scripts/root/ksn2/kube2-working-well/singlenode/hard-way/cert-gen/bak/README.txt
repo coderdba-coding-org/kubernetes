@@ -1,23 +1,5 @@
 https://github.com/kelseyhightower/kubernetes-the-hard-way/blob/master/docs/04-certificate-authority.md
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-STEPS
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-NOTE: Use utility scripts available for this
-
-Create pem files
-Create kubeconfig files
-Copy all .pem files to /etc/kubernetes/pki
-Copy all .kubeconfig files to /etc/kubernetes/kubeconfig
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Utilities
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-runall.sh - run all scripts to generate certs, kubeconfig
-check-cert.sh - check contents of certificate in text form
-encode-base64.sh - encode key and cert files with base64 and concatenate output to a single string
-host-change-in-scripts.sh - to change hostname and ip addresses in scripts 
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 kubernetes.pem peculiarity
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -47,3 +29,9 @@ kubeconfig-kube-controller-manager-gen.sh
 kubeconfig-kubelet-gen.sh
 kubeconfig-kube-proxy-gen.sh
 kubeconfig-kube-scheduler-gen.sh
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Utilities
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+check-cert.sh - check contents of certificate in text form
+encode-base64.sh - encode key and cert files with base64 and concatenate output to a single string
