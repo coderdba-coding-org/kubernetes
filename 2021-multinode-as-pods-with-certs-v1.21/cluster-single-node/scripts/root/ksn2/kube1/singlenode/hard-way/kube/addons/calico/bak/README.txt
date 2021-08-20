@@ -4,8 +4,8 @@ CALICO
 Official doc: https://docs.projectcalico.org/getting-started/kubernetes/
       For self-managed clusters: https://docs.projectcalico.org/getting-started/kubernetes/self-managed-onprem/
       
-Customize manifests: https://docs.projectcalico.org/getting-started/kubernetes/installation/config-options
 Install: https://docs.projectcalico.org/getting-started/kubernetes/self-managed-onprem/onpremises
+Customize manifests: https://docs.projectcalico.org/getting-started/kubernetes/installation/config-options
 
 ETCD RBAC: https://docs.projectcalico.org/reference/etcd-rbac/kubernetes
 Generating certificates: https://docs.projectcalico.org/reference/etcd-rbac/certificate-generation
