@@ -1,0 +1,7 @@
+THIS_NAME=ksn1
+THIS_IP=192.168.99.101
+DATA_DIR="etcd-data"
+ETCD_IMAGE="k8s.gcr.io/etcd:3.4.13-0"
+CLUSTER_STATE=new
+CLUSTER="ksn1=https://192.168.99.101:2380"
+TOKEN=arbitrary-token
