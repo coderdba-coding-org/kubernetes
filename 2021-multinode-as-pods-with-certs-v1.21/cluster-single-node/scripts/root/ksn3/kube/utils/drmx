@@ -1,0 +1,6 @@
+docker ps -a |grep Exited | awk '{print "docker stop " $1}' > x
+docker ps -a |grep Exited | awk '{print "docker rm " $1}' >> x
+
+echo
+echo check and execute file x
+echo
