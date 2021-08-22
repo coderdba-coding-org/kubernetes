@@ -266,6 +266,8 @@ default     example-ingress   <none>   hello-world.info   192.168.99.103   80   
 
 - CURL TO INGRESS CONTROLLER (not to ingress)
 With /etc/hosts having hosnaame hello-world.info as defined in ingress to point to the ingress's address in kubectl get ingress
+NOTE: Curl to address and address/v2 show the appropriate 'hostname' in response output pointing to the correct pod-names of web and web2
+      Curl to address/v3 seem to go to default "address" itself
 
 # curl hello-world.info:31097
 Hello, world!
@@ -282,5 +284,26 @@ Hello, world!
 Version: 1.0.0
 Hostname: web-79d88c97d6-h5kqp
 
-- CURL TO INGRESS (not to ingress controller)
+- CURL TO INGRESS (not to ingress controller) --> NOT WORKING
+With /etc/hosts having hosnaame hello-world.info as defined in ingress to point to the ingress's address in kubectl get ingress
 
+- Access the 1st version of the Hello World app.
+
+curl hello-world.info --> NOT WORKING
+curl: (7) Failed connect to hello-world.info:80; Connection refused
+
+Expected Output:
+Hello, world!
+Version: 1.0.0
+Hostname: web-55b8c6998d-8k564
+
+- Access the 2nd version of the Hello World app.
+
+curl hello-world.info/v2 --> NOT WORKING
+curl: (7) Failed connect to hello-world.info:80; Connection refused
+
+Expected Output:
+
+Hello, world!
+Version: 2.0.0
+Hostname: web2-75cd47646f-t8cjk
