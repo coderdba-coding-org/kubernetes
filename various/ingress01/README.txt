@@ -1,7 +1,14 @@
+NOTE:
+
+HOSTNAME/80 is not working HOSTNAME/NODEPORT of nginx-ingress-controller is working
+- TRY THIS EXAMPLE TO SEE IF THAT WORKS: https://www.digitalocean.com/community/tutorials/how-to-set-up-an-nginx-ingress-on-digitalocean-kubernetes-using-helm
 
 ==================================
 REFERENCES
 ==================================
+OWN REFERENCE:
+- With default-backend as well: https://github.com/coderdba/NOTES/blob/master/kubernetes-kb/ingress-controller-W-nginx.txt
+
 Kubernetes site
 - https://kubernetes.io/docs/concepts/services-networking/ingress/
 - https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/
@@ -22,13 +29,14 @@ Tutorial: https://kubernetes.io/docs/tasks/access-application-cluster/ingress-mi
 Tutorial: https://matthewpalmer.net/kubernetes-app-developer/articles/kubernetes-ingress-guide-nginx-example.html (similar one as above)
 Tutorial: https://www.fairwinds.com/blog/intro-to-kubernetes-ingress-set-up-nginx-ingress-in-kubernetes-bare-metal
 
+Tutorial (try this one to see if this works):  https://www.digitalocean.com/community/tutorials/how-to-set-up-an-nginx-ingress-on-digitalocean-kubernetes-using-helm
+
 Tutorial/Example - 
 - Manually setting up ingress controller: (with LoadBalancer object) 
   - https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengsettingupingresscontroller.htm
 - Another exmaple: https://stackoverflow.com/questions/49845021/getting-an-kubernetes-ingress-endpoint-ip-address
 
-Maybe refer to this also: 
-- https://github.com/coderdba/NOTES/blob/master/kubernetes-kb/ingress-controller-W-nginx.txt
+Tutorial/Example with some TLS stuff: https://platform9.com/blog/building-a-complete-stack-ingress-controllers/
 
 ==================================
 INSTALL NGINX-INGRESS-CONTROLLER
