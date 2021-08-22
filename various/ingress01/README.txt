@@ -15,8 +15,10 @@ Official nginx site:
 Tutorial - the nginx-ingress-controller: 
 - https://www.fairwinds.com/blog/intro-to-kubernetes-ingress-set-up-nginx-ingress-in-kubernetes-bare-metal
 
-Manually setting up ingress controller: (with LoadBalancer object)
-- https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengsettingupingresscontroller.htm
+Tutorial/Example - 
+- Manually setting up ingress controller: (with LoadBalancer object) 
+  - https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengsettingupingresscontroller.htm
+- Another exmaple: https://stackoverflow.com/questions/49845021/getting-an-kubernetes-ingress-endpoint-ip-address
 
 Maybe refer to this also: 
 - https://github.com/coderdba/NOTES/blob/master/kubernetes-kb/ingress-controller-W-nginx.txt
