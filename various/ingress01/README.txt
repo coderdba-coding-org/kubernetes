@@ -1,3 +1,7 @@
+
+==================================
+REFERENCES
+==================================
 Kubernetes site
 - https://kubernetes.io/docs/concepts/services-networking/ingress/
 - https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/
@@ -190,9 +194,16 @@ kubectl apply -f example-ingress.yaml --kubeconfig ~/.kube/admin.kubeconfig.ksn3
 Output:
 ingress.networking/example-ingress configured 
 
+- Verify
+kubectl get ingress --all-namespaces
+
+NAMESPACE   NAME              CLASS    HOSTS              ADDRESS          PORTS   AGE
+default     example-ingress   <none>   hello-world.info   192.168.99.103   80      25m
+
 ===============================
-TEST THE INGRESS
+TEST THE INGRESS --> NOT WORKING
 ===============================
+With /etc/hosts having hosnaame hello-world.info as defined in ingress to point to the ingress's address in kubectl get ingress
 
 - Access the 1st version of the Hello World app.
 
@@ -214,3 +225,60 @@ Expected Output:
 Hello, world!
 Version: 2.0.0
 Hostname: web2-75cd47646f-t8cjk
+
+=============================
+LISTING EVERYTHING
+=============================
+
+- PODS
+
+kubectl get pods --all-namespaces
+
+NAMESPACE       NAME                                        READY   STATUS    RESTARTS   AGE     IP               NODE   NOMINATED NODE   READINESS GATES
+
+--> The app pods
+default         web-79d88c97d6-h5kqp                        1/1     Running   0          34m     172.17.0.4       ksn3   <none>           <none>
+default         web2-5d47994f45-44xqs                       1/1     Running   0          8m15s   172.17.0.5       ksn3   <none>           <none>
+
+--> Ngnix ingress controller pods
+ingress-nginx   ingress-nginx-controller-5b97d5cd4b-v75q5   1/1     Running   0          154m    172.17.0.3       ksn3   <none>           <none>
+
+- SERVICES
+
+kubectl get svc --all-namespaces
+
+NAMESPACE       NAME                                 TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                      AGE
+default         web                                  NodePort    10.98.154.232    <none>        8080:32263/TCP               30m
+default         web2                                 NodePort    10.102.88.36     <none>        8080:31760/TCP               9m14s
+
+ingress-nginx   ingress-nginx-controller             NodePort    10.106.8.102     <none>        80:31097/TCP,443:32202/TCP   177m
+ingress-nginx   ingress-nginx-controller-admission   ClusterIP   10.100.144.118   <none>        443/TCP                      177m
+
+- INGRESS 
+NOTE --> In the example website the IP was pod-IP per pod-cidr - not host's IP (https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/)
+
+kubectl get ingress --all-namespaces
+
+NAMESPACE   NAME              CLASS    HOSTS              ADDRESS          PORTS   AGE
+default     example-ingress   <none>   hello-world.info   192.168.99.103   80      25m
+
+- CURL TO INGRESS CONTROLLER (not to ingress)
+With /etc/hosts having hosnaame hello-world.info as defined in ingress to point to the ingress's address in kubectl get ingress
+
+# curl hello-world.info:31097
+Hello, world!
+Version: 1.0.0
+Hostname: web-79d88c97d6-h5kqp
+
+# curl hello-world.info:31097/v2
+Hello, world!
+Version: 2.0.0
+Hostname: web2-5d47994f45-44xqs
+
+# curl hello-world.info:31097/v3
+Hello, world!
+Version: 1.0.0
+Hostname: web-79d88c97d6-h5kqp
+
+- CURL TO INGRESS (not to ingress controller)
+
