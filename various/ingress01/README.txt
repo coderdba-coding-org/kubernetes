@@ -12,8 +12,15 @@ Official nginx site:
 - Deployment: https://kubernetes.github.io/ingress-nginx/deploy/
 - Troubleshooting: https://kubernetes.github.io/ingress-nginx/troubleshooting/
 
-Tutorial - the nginx-ingress-controller: 
-- https://www.fairwinds.com/blog/intro-to-kubernetes-ingress-set-up-nginx-ingress-in-kubernetes-bare-metal
+- Basic Usage guide https://kubernetes.github.io/ingress-nginx/user-guide/basic-usage/
+  --> Ingresses created with annotation as below will be automatically discovered by nginx-ingress-controller
+	  annotations:
+    		# use the shared ingress-nginx
+    		kubernetes.io/ingress.class: "nginx"
+
+Tutorial: https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/
+Tutorial: https://matthewpalmer.net/kubernetes-app-developer/articles/kubernetes-ingress-guide-nginx-example.html (similar one as above)
+Tutorial: https://www.fairwinds.com/blog/intro-to-kubernetes-ingress-set-up-nginx-ingress-in-kubernetes-bare-metal
 
 Tutorial/Example - 
 - Manually setting up ingress controller: (with LoadBalancer object) 
