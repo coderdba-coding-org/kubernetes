@@ -1,0 +1,19 @@
+All Tasks From - https://kubernetes.io/docs/tasks/
+All Tasks From - https://kubernetes.io/docs/tutorials/
+
+Multi-container pod - Communicate Between Containers in the Same Pod Using a Shared Volume 
+- https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/
+Data injection to containers - command line args, variables, files, secrets etc -  https://kubernetes.io/docs/tasks/inject-data-application/
+ConfigMap
+Secret - opaque and non-opaque
+Ingress
+Ingress Controller
+Nodeport
+HostPort
+Privileged
+Accessing host filesystem - mounts
+DNS for cluster - https://kubernetes.io/docs/tasks/access-application-cluster/configure-dns-cluster/
+Jobs
+Role, RoleBinding
+ClusterRole, ClusterRoleBinding
+TLS - https://kubernetes.io/docs/tasks/tls/
