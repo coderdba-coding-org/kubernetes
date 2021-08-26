@@ -1,0 +1,8 @@
+# For etcd
+THIS_NAME=ksn3
+THIS_IP=192.168.99.103
+DATA_DIR="etcd-data"
+ETCD_IMAGE="k8s.gcr.io/etcd:3.4.13-0"
+CLUSTER_STATE=new
+CLUSTER="ksn3=https://192.168.99.103:2380"
+TOKEN=arbitrary-token
