@@ -1,0 +1,1 @@
+kubectl get svc -n default -o wide --kubeconfig=/root/.kube/admin.kubeconfig
