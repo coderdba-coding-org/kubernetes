@@ -14,3 +14,10 @@ echo
 ls -l /etc/kubernetes/pki/*
 ls -l /etc/kubernetes/kubeconfig/*
 
+echo
+echo Copying to ~/.kube
+echo
+
+mkdir -p ~/.kube
+cp -p /etc/kubernetes/kubeconfig/* ~/.kube/.
+cp -p ~/.kube/admin.kubeconfig ~/.kube/config
