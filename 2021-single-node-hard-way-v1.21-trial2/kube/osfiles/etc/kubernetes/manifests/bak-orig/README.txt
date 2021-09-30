@@ -1,9 +1,6 @@
 ==================================================
 STEPS
 ==================================================
-Modify IP address and hostname of node in yaml files
-Modify (if needed) cluster cidr and service ip address range in yaml files
-Copy the yaml files to /etc/kubernetes/manifests
 
 
 ==================================================
