@@ -57,3 +57,8 @@ NAME                 STATUS    MESSAGE             ERROR
 scheduler            Healthy   ok                  
 controller-manager   Healthy   ok                  
 etcd-0               Healthy   {"health":"true"}  
+
+- NEXT STEPS
+-- COREDNS
+-- CALICO
+-- KUBE-PROXY
