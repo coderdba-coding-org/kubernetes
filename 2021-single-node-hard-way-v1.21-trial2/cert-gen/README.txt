@@ -5,6 +5,9 @@ STEPS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 NOTE: Use utility scripts available for this
 
+--------------------------
+STEPS (see scripts below)
+--------------------------
 Modify json files - for correct hostnames
 Modify shell files - for correct hostname, for correct IP address - use host-change-in-scripts.sh
 
@@ -13,13 +16,22 @@ Create kubeconfig files
 Copy all .pem files to /etc/kubernetes/pki
 Copy all .kubeconfig files to /etc/kubernetes/kubeconfig
 
+--------------------------------
+SCRIPTS - RUN IN THIS SEQUENCE
+--------------------------------
+host-change-in-scripts.sh - to change hostname and ip addresses in scripts 
+runall.sh - run all scripts to generate certs, kubeconfig
+copy-to-destination.sh
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Utilities
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+host-change-in-scripts.sh - to change hostname and ip addresses in scripts 
 runall.sh - run all scripts to generate certs, kubeconfig
+copy-to-destination.sh
+
 check-cert.sh - check contents of certificate in text form
 encode-base64.sh - encode key and cert files with base64 and concatenate output to a single string
-host-change-in-scripts.sh - to change hostname and ip addresses in scripts 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 kubernetes.pem peculiarity
