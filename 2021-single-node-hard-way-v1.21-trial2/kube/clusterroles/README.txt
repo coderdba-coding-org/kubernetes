@@ -2,6 +2,17 @@ https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 https://docs.bitnami.com/tutorials/configure-rbac-in-your-kubernetes-cluster/
 
 ===================================
+STEPS
+===================================
+Modify yaml files:
+kube-apiserver-to-kubelet.yaml
+kube-apiserver-to-kubelet-bind.yaml
+
+Apply yaml files:
+kubectl apply --kubeconfig ~/.kube/admin.kubeconfig -f kube-apiserver-to-kubelet.yaml
+kubectl apply --kubeconfig ~/.kube/admin.kubeconfig -f kube-apiserver-to-kubelet-bind.yaml
+
+===================================
 ERROR WHILE DOING kubectl get logs
 ===================================
 
