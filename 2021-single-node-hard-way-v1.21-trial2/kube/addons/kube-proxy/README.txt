@@ -5,3 +5,7 @@ Not necessary to provide 'master' in daemonset yaml - as it will be in kubeconfi
 - --master=https://ksn2:6443
 
 Bind address defaults to 0.0.0.0 - no need to specify if that is ok
+
+Cluster cidr should match with that in controller-manager manifest:
+kube-controller-manager.yaml:    - --cluster-cidr=172.16.0.0/16
+

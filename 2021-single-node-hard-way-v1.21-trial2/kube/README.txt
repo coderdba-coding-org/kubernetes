@@ -7,6 +7,28 @@ clusterroles
 roles
 
 ====================================
+IP ADDRESS STUFF
+====================================
+
+-------------
+cluster-cidr
+-------------
+This is what pods will get
+
+kube-controller-manager.yaml:    - --cluster-cidr=172.16.0.0/16
+kube-proxy-ds.yaml: - --cluster-cidr=172.16.0.0/16
+
+-------------------------
+service-cluster-ip-range
+-------------------------
+This is what services will get
+
+kube-apiserver.yaml:    - --service-cluster-ip-range=10.96.0.0/12
+kube-controller-manager.yaml:    - --service-cluster-ip-range=10.96.0.0/12
+
+
+
+====================================
 STEPS
 ====================================
 
