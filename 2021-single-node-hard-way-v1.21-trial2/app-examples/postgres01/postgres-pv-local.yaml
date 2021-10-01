@@ -1,0 +1,15 @@
+# https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#create-a-persistentvolume
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: postgres-pv-local
+  labels:
+    type: local
+spec:
+  storageClassName: postgres-local-storage
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/postgres-data"

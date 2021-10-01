@@ -21,7 +21,7 @@ kube-proxy-ds.yaml: - --cluster-cidr=172.16.0.0/16
 -------------------------
 service-cluster-ip-range
 -------------------------
-This is what services will get
+This is what 'clusterIp' services will get for system services???
 
 kube-apiserver.yaml:    - --service-cluster-ip-range=10.96.0.0/12
 kube-controller-manager.yaml:    - --service-cluster-ip-range=10.96.0.0/12
