@@ -1,6 +1,6 @@
-------------------------------------------------
+================================================
 CALICO
-------------------------------------------------
+================================================
 Official doc: https://docs.projectcalico.org/getting-started/kubernetes/
       For self-managed clusters: https://docs.projectcalico.org/getting-started/kubernetes/self-managed-onprem/
       
@@ -12,14 +12,18 @@ Generating certificates: https://docs.projectcalico.org/reference/etcd-rbac/cert
 
 Architecture diagram good one: https://tanzu.vmware.com/developer/guides/kubernetes/container-networking-calico-refarch/
 
-~~~~~~~~~~~~~~~
+================================================
 NOTES
-~~~~~~~~~~~~~~~
+================================================
 1. Modified image versions from 3.20.0 to 3.19.1 - as 3.19.1 images were already downloaded
+2. In this case, we are using the same key and cert for apiserver and etcd 
+   - therefore, the key and cert file names are same for them and have 'kubernetes' in the file names
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+================================================
 MANIFESTS - READ CAREFULLY
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+================================================
+NOTE: yaml files for 'etcd' and 'typha' based implementations are available - I used etcd based yaml
+
 https://docs.projectcalico.org/getting-started/kubernetes/self-managed-onprem/onpremises
 
 You can install Calico with its own data stored in different ways:
@@ -57,13 +61,19 @@ in the manifest and set it to the same value as your chosen pod CIDR.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 MANIFEST CHANGS REQUIRED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-1. etcd_endpoints	Comma-delimited list of etcd endpoints to connect to.	http://127.0.0.1:2379
+1. etcd_endpoints	Comma-delimited list of etcd endpoints to connect to	
+--> http://<IP of the node1>:2379,http://<IP of the node2>:2379,http://<IP of the node3>:2379 (this may also work - if etcd is local and not clustered - http://127.0.0.1:2379)
 
 2. Within the ConfigMap section, uncomment the etcd_ca, etcd_key, and etcd_cert lines so that they look as follows.
 
 etcd_ca: "/calico-secrets/etcd-ca"
+--> Use contents of ca.pem.base64
+
 etcd_cert: "/calico-secrets/etcd-cert"
+--> Use contents of kubernetes.pem.base64
+
 etcd_key: "/calico-secrets/etcd-key"
+--> Use contents of kubernetes-key.pem.base64
 
 3. Using a command like the following to strip the newlines from the files and base64-encode their contents.
 
