@@ -1,0 +1,35 @@
+# https://www.bmc.com/blogs/kubernetes-postgresql/
+# PostgreSQL StatefulSet
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres1
+spec:
+  serviceName: postgres1-service
+  selector:
+    matchLabels:
+      app: postgres
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: postgresql
+    spec:
+      volumes:
+        - name: postgres-db-disk
+          persistentVolumeClaim:
+            claimName: postgres-pv-claim-1
+      containers:
+        - name: postgres
+          image: postgres:14.0
+          volumeMounts:
+          - name: postgresql-db-disk
+            mountPath: /var/lib/postgresql/data
+          env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret-config
+                  key: password
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
