@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       labels:
-        app: postgresql
+        app: postgres
     spec:
       volumes:
         - name: postgres-db-disk
@@ -23,7 +23,7 @@ spec:
         - name: postgres
           image: postgres:14.0
           volumeMounts:
-          - name: postgresql-db-disk
+          - name: postgres-db-disk
             mountPath: /var/lib/postgresql/data
           env:
             - name: POSTGRES_PASSWORD
