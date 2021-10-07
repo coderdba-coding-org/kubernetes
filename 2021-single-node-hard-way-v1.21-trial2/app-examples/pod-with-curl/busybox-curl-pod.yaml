@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox-curl
+  namespace: default
+  labels:
+    app: busybox-curl
+spec:
+  containers:
+    - name: busybox-curl
+      image: progrium/busybox
+      command:
+        - sleep
+        - "3600"
+      imagePullPolicy: IfNotPresent
+  restartPolicy: Always
