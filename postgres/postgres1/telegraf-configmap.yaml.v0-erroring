@@ -16,11 +16,13 @@ data:
       round_interval = true
       metric_batch_size = 1000
       metric_buffer_limit = 10000
-      collection_jitter = "10s"
-      flush_interval = "30s"
-      flush_jitter = "10s"
+      collection_jitter = "0s"
+      flush_interval = "10s"
+      flush_jitter = "0s"
+      precision = ""
       debug = false
       quiet = false
+      logfile = ""
       hostname = "$HOSTNAME"
       omit_hostname = false
     [[outputs.influxdb]]
@@ -28,9 +30,8 @@ data:
       database = "$MONITOR_DATABASE"
       retention_policy = "$MONITOR_RETENTION_POLICY"
       write_consistency = "any"
-      timeout = "15s"
+      timeout = "5s"
       username = "$MONITOR_USERNAME"
       password = "$MONITOR_PASSWORD"
      [[inputs.postgresql]]
-      address = "host=localhost port=5432 user=postgres password=password dbname=postgres sslmode=disable"
-      databases = ["test1", "postgres"]
+      address = "host=localhost user=postgres password=password dbname=test1 sslmode=disable"
