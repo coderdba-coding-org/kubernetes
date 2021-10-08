@@ -1,0 +1,81 @@
+---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres1
+spec:
+  serviceName: postgres1-service
+  selector:
+    matchLabels:
+      app: postgres
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      volumes:
+        - name: postgres-db-disk
+          persistentVolumeClaim:
+            claimName: postgres-pv-claim-1
+        - name: config
+          configMap:
+            name: telegraf
+      containers:
+        - name: postgres
+          image: postgres:14.0
+          volumeMounts:
+          - name: postgres-db-disk
+            mountPath: /var/lib/postgresql/data
+          env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret-config
+                  key: password
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+        - name: telegraf
+          image: docker.io/telegraf:1.5.2
+          ports:
+          - name: udp
+            containerPort: 8094
+          env:
+          - name: HOSTNAME
+            valueFrom:
+              fieldRef:
+                fieldPath: spec.nodeName
+          - name: ENV
+            valueFrom:
+              secretKeyRef:
+                name: telegraf
+                key: env
+          - name: MONITOR_RETENTION_POLICY
+            valueFrom:
+              secretKeyRef:
+                name: telegraf
+                key: monitor_retention_policy
+          - name: MONITOR_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: telegraf
+                key: monitor_username
+          - name: MONITOR_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: telegraf
+                key: monitor_password
+          - name: MONITOR_HOST
+            valueFrom:
+              secretKeyRef:
+                name: telegraf
+                key: monitor_host
+          - name: MONITOR_DATABASE
+            valueFrom:
+              secretKeyRef:
+                name: telegraf
+                key: monitor_database
+          volumeMounts:
+          - name: config
+            mountPath: /etc/telegraf
