@@ -21,6 +21,7 @@ data:
       flush_jitter = "10s"
       debug = false
       quiet = false
+      logfile = "/var/log/telegraf/telegraf.log"
       hostname = "$HOSTNAME"
       omit_hostname = false
     [[outputs.influxdb]]
