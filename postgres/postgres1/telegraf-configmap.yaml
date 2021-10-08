@@ -19,11 +19,14 @@ data:
       collection_jitter = "10s"
       flush_interval = "30s"
       flush_jitter = "10s"
-      debug = false
+      debug = true
       quiet = false
-      logfile = "/var/log/telegraf/telegraf.log"
+      #logfile = "/var/log/telegraf/telegraf.log"
       hostname = "$HOSTNAME"
       omit_hostname = false
+    #[[outputs.file]]
+      #files = ["stdout"]
+      #data_format = "influx"
     [[outputs.influxdb]]
       urls = ["$MONITOR_HOST"]
       database = "$MONITOR_DATABASE"
