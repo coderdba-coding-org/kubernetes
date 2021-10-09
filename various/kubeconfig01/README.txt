@@ -1,8 +1,9 @@
 ===============
 KUBECONFIG
 ===============
+A utility: https://github.com/zlabjp/kubernetes-scripts/blob/master/create-kubeconfig
 
-http://docs.shippable.com/deploy/tutorial/create-kubeconfig-for-self-hosted-kubernetes-cluster/
+Main Reference: http://docs.shippable.com/deploy/tutorial/create-kubeconfig-for-self-hosted-kubernetes-cluster/
 
 Create service account manifest sa.yaml
 Apply it: kubectl apply -f sa.yaml
