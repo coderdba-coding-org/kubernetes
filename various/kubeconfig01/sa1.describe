@@ -1,0 +1,8 @@
+Name:                sa1
+Namespace:           default
+Labels:              <none>
+Annotations:         <none>
+Image pull secrets:  <none>
+Mountable secrets:   sa1-token-66lzs
+Tokens:              sa1-token-66lzs
+Events:              <none>
