@@ -1,0 +1,8 @@
+Name:                svcs-acct-dply
+Namespace:           default
+Labels:              <none>
+Annotations:         <none>
+Image pull secrets:  <none>
+Mountable secrets:   svcs-acct-dply-token-n5w2t
+Tokens:              svcs-acct-dply-token-n5w2t
+Events:              <none>

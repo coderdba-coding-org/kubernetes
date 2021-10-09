@@ -1,0 +1,13 @@
+Name:         svcs-acct-dply-token-n5w2t
+Namespace:    default
+Labels:       <none>
+Annotations:  kubernetes.io/service-account.name: svcs-acct-dply
+              kubernetes.io/service-account.uid: 847f4cfb-3939-46b3-b617-c909284bc7f2
+
+Type:  kubernetes.io/service-account-token
+
+Data
+====
+namespace:  7 bytes
+token:      eyJhbGciOiJSUzI1NiIsImtpZCI6InRHZ3VYQU9lUUFjZ2lsby1aTHkwUzB1YlNMWGgyNUlBaE1ickRRMUNJQVEifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJkZWZhdWx0Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6InN2Y3MtYWNjdC1kcGx5LXRva2VuLW41dzJ0Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6InN2Y3MtYWNjdC1kcGx5Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiODQ3ZjRjZmItMzkzOS00NmIzLWI2MTctYzkwOTI4NGJjN2YyIiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50OmRlZmF1bHQ6c3Zjcy1hY2N0LWRwbHkifQ.V9bw9WAXc20p_nYJVj-MkjosNyI9kbktED1FHeD5bA4tyIPmeOnlF1NQUnnHainG64ZVRspzKXMQYWgvqFZ3F5MHwNByNTUdCoccf3bLZJvrDLdq-ARW-3DK64sAgcXuevvRntUTKLv4L81vOUcRosdJyxOUYGpFmbnFKz0UdGDRoNiejulZZS6m8UwBy9jGznu87sMUYb9jr2kRDinyPFXyu9AjzQzJ3__uM9qofEg0ygGus3lWbHN59CK_xrWHuvt69RmOFwaqLhFroPMcuDYfwSMqJsLHHONjdPatMTjIHQXoQID6F8G__zkMOUXCjO3GcrUOsERV2mLcePHffw
+ca.crt:     1367 bytes

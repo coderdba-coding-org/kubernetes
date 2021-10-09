@@ -1,0 +1,11 @@
+apiVersion: v1
+clusters: null
+contexts:
+- context:
+    cluster: ""
+    user: ""
+  name: sa-svcs-acct-dply
+current-context: ""
+kind: Config
+preferences: {}
+users: null
