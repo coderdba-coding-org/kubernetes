@@ -106,7 +106,7 @@ NAMESPACE     NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)       
 default       kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP                  11h   <none>
 kube-system   kube-dns     ClusterIP   10.96.0.10   <none>        53/UDP,53/TCP,9153/TCP   19m   k8s-app=kube-dns
 
-- NEXT STEPS
+- CALICO
 Follow README.txt in addons/calico
 
 - VERIFY
