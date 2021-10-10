@@ -37,3 +37,43 @@ NOTE: Getting error because the service-account did not have any privilege - or 
   kubectl --kubeconfig=./kubeconfig.sa-svcs-acct-dply get pods
   error: You must be logged in to the server (Unauthorized)
 
+====================================
+RBAC ACCESS TO SA1 SERVICE ACCOUNT
+====================================
+------------------------------
+CREATE ROLE AND CLUSTER-ROLE
+------------------------------
+Create role: rbac-role-pod-reader.yaml
+Create cluster-role: rbac-clusterrole-secret-reader.yaml
+
+------------------------------
+BIND POD-READER ROLE
+------------------------------
+Bind role to service account: rbac-rolebinding-pod-reader.yaml
+Verify: kubectl --kubeconfig=./sa1.kubeconfig  get pods -n default
+
+--------------------------------------------------------
+BIND SECRET-READER CLUSTER-ROLE AS JUST ROLEBINDING
+--------------------------------------------------------
+Bind cluster-role as just 'role' to service account: rbac-rolebinding-secret-reader.yaml
+- Note: apiGroup should be just "" for ServiceAccounts
+Verify: kubectl --kubeconfig=./sa1.kubeconfig  get secrets -n default
+
+--------------------------------------------------------
+BIND SECRET-READER CLUSTER-ROLE AS CLUSTER-ROLE-BINDING
+--------------------------------------------------------
+Bind cluster-role to service account: rbac-clusterrolebinding-secret-reader-global.yaml
+- Note: for service-account we still need to mention namespace to bind to - because service accounts are namespace bound
+        NOTE FURTHER: HOWEVER, CLUSTER-ROLE IS BOUND TO THE SERVICE-ACCOUNT FOR THE WHOLE CLUSTER
+-       https://stackoverflow.com/questions/58876847/clusterrolebinding-requires-namespace
+- Note: apiGroup should be just "" for ServiceAccounts
+
+Verify: kubectl --kubeconfig=./sa1.kubeconfig  get secrets --all-namespaces
+NOTE: Here, we are getting for "all namespaces" - because it is a ClusterRoleBinding
+
+-----------------------------------------------------------
+BIND CLUSTER-ADMIN INBUILT CLUSTERROLE TO SERVICE ACCOUNT
+-----------------------------------------------------------
+sa1-ClusterRoleBinding-cluster-admin-remove.sh
+sa1-ClusterRoleBinding-cluster-admin.sh
+
