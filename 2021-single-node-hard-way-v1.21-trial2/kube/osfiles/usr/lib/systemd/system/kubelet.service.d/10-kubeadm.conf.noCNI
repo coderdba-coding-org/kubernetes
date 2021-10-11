@@ -24,7 +24,4 @@ $KUBELET_NETWORK_ARGS \
 $KUBELET_DNS_ARGS  \
 --client-ca-file=/etc/kubernetes/pki/ca.pem \
 --tls-cert-file=/etc/kubernetes/pki/kubelet-ksn1.pem \
---tls-private-key-file=/etc/kubernetes/pki/kubelet-ksn1-key.pem \
---network-plugin=cni \
---register-node=true \
---v=2
+--tls-private-key-file=/etc/kubernetes/pki/kubelet-ksn1-key.pem

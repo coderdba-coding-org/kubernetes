@@ -18,6 +18,8 @@ NOTES
 1. Modified image versions from 3.20.0 to 3.19.1 - as 3.19.1 images were already downloaded
 2. In this case, we are using the same key and cert for apiserver and etcd 
    - therefore, the key and cert file names are same for them and have 'kubernetes' in the file names
+3. In calico-etcd.yaml - CALICO_IPV4POOL_CIDR mostly need not be added 
+   - if pods do not get CIDRs or cannot communicate between replicas in different nodes, then add it
 
 ================================================
 MANIFESTS - READ CAREFULLY

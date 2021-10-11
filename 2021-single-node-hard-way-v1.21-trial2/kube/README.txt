@@ -26,8 +26,6 @@ This is what 'clusterIp' services will get for system services???
 kube-apiserver.yaml:    - --service-cluster-ip-range=10.96.0.0/12
 kube-controller-manager.yaml:    - --service-cluster-ip-range=10.96.0.0/12
 
-
-
 ====================================
 STEPS
 ====================================
@@ -51,6 +49,9 @@ Modify and copy file in osfiles/var/lib/kubelet --> see README.txt in it
 
 - KUBELET SERVICE FILE
 Modify and copy file in osfiles/usr/lib/systemd/system --> see README.txt in it
+
+- CNI BRIDGE AND LOOPBACK CONFIGURATION
+Modify and copy files in osfiles/etc/cni/net.d --> see README.txt in it
 
 - START KUBELET
 systemctl enable kubelet
