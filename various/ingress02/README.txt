@@ -13,14 +13,22 @@ MY DOCUMENTATION
 https://github.com/coderdba/NOTES/blob/master/kubernetes-kb/ingress-controller-F-nginx.txt
 
 =====================================================================
+PROBLEMS
+=====================================================================
+connection refused or bad-gateway error
+- stop firewall - OR - open necessary firewall ports
+
+=====================================================================
 STEPS
 =====================================================================
 
+- PULL SAMPLE APPLICATION IMAGES
 docker pull gcr.io/google-samples/hello-app:1.0
 
 - CREATE INGRESS CONTROLLER
 Modify the manifest nginx-ingress-controller-deploy.yaml - add correct externalIp (which is the same as that of the node)
 Apply the manifest nginx-ingress-controller-deploy.yaml
+- Run ingress-controller-create.sh
 
 - CREATE THE APPS AND THEIR SERVICES
 app-and-service-create.sh
